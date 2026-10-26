@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Payroll Management</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <div>
+      <h1>Employee Payroll</h1>
+      <p>Manage employees and calculate monthly salaries</p>
+    </div>
+    <span class="status">● System Online</span>
+  </header>
+
+  <main class="container">
+    <section class="stats">
+      <article class="stat-card">
+        <p>Total Employees</p>
+        <h2 id="totalEmployees">0</h2>
+      </article>
+      <article class="stat-card">
+        <p>Total Monthly Payroll</p>
+        <h2 id="totalPayroll">₹0</h2>
+      </article>
+      <article class="stat-card">
+        <p>Average Net Salary</p>
+        <h2 id="averageSalary">₹0</h2>
+      </article>
+    </section>
+
+    <section class="panel">
+      <h2>Add Employee</h2>
+
+      <form id="employeeForm">
+        <div class="form-grid">
+          <label>Employee ID
+            <input id="employeeId" placeholder="EMP003" required>
+          </label>
+
+          <label>Employee Name
+            <input id="employeeName" placeholder="Enter full name" required>
+          </label>
+
+          <label>Department
+            <select id="department" required>
+              <option value="">Select department</option>
+              <option>IT</option>
+              <option>HR</option>
+              <option>Finance</option>
+              <option>Marketing</option>
+              <option>Sales</option>
+              <option>Operations</option>
+            </select>
+          </label>
+
+          <label>Basic Salary (₹)
+            <input id="basic" type="number" min="0" step="0.01"
+              placeholder="30000" required>
+          </label>
+
+          <label>Allowance (₹)
+            <input id="allowance" type="number" min="0" step="0.01"
+              value="0" required>
+          </label>
+
+          <label>Deductions (₹)
+            <input id="deductions" type="number" min="0" step="0.01"
+              value="0" required>
+          </label>
+        </div>
+
+        <div class="salary-preview">
+          Estimated Net Salary: <strong id="salaryPreview">₹0</strong>
+        </div>
+
+        <button type="submit">+ Add Employee</button>
+        <p id="message" role="status"></p>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="table-heading">
+        <div>
+          <h2>Employee Records</h2>
+          <p>View and manage payroll details</p>
+        </div>
+        <input id="search" type="search"
+          placeholder="Search name or ID...">
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Department</th>
+              <th>Basic</th>
+              <th>Gross Salary</th>
+              <th>Deductions</th>
+              <th>Net Salary</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="employeeTable"></tbody>
+        </table>
+      </div>
+
+      <p id="emptyMessage"></p>
+    </section>
+  </main>
+
+  <footer>Employee Payroll Management System | EWP Lab Project</footer>
+</body>
+</html>
